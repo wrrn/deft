@@ -1084,7 +1084,7 @@ be the first non-empty line of the FILE.  Else the base name of the FILE is
 used as title."
   (if deft-use-filename-as-title
       (deft-base-filename file)
-    (let ((begin (string-match "^.+$" contents)))
+    (let ((begin (string-match "^#\\+title: .*$" contents)))
       (if begin
           (funcall deft-parse-title-function
                    (substring contents begin (match-end 0)))))))
